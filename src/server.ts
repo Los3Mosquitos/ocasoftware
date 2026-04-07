@@ -6,6 +6,7 @@ import {
 } from '@angular/ssr/node';
 import express from 'express';
 import {join} from 'node:path';
+import { Resend } from 'resend';
 
 const browserDistFolder = join(import.meta.dirname, '../browser');
 
@@ -13,16 +14,41 @@ const app = express();
 const angularApp = new AngularNodeAppEngine();
 
 /**
- * Example Express Rest API endpoints can be defined here.
- * Uncomment and define endpoints as necessary.
- *
- * Example:
- * ```ts
- * app.get('/api/{*splat}', (req, res) => {
- *   // Handle API request
- * });
- * ```
+ * Add middleware to parse JSON bodies
  */
+app.use(express.json());
+
+/**
+ * Contact Form API Endpoint using Resend
+ */
+app.post('/api/contact', async (req, res) => {
+  try {
+    const { firstName, lastName, email, interest, message } = req.body;
+    
+    // Fallback if environment variable is not defined for local testing
+    const resendApiKey = process.env['RESEND_API_KEY'] || 're_sandbox123';
+    const resend = new Resend(resendApiKey);
+
+    const data = await resend.emails.send({
+      from: 'OCA Software <onboarding@resend.dev>', // Use a verified domain in production
+      to: ['hello@ocasoftware.com.br'],
+      subject: `Novo Contato do Site: ${firstName} ${lastName}`,
+      html: `
+        <h2>Novo contato recebido do formulário do site OCA Software</h2>
+        <p><strong>Nome:</strong> ${firstName} ${lastName}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Interesse:</strong> ${interest}</p>
+        <p><strong>Mensagem:</strong></p>
+        <p>${message.replace(/\n/g, '<br>')}</p>
+      `,
+    });
+
+    res.status(200).json({ success: true, data });
+  } catch (error: any) {
+    console.error('Error sending email:', error);
+    res.status(500).json({ success: false, error: error.message });
+  }
+});
 
 /**
  * Serve static files from /browser
