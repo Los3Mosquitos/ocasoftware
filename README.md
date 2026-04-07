@@ -72,6 +72,26 @@ npm run lint
 
 ---
 
+## 🚀 Deploy na Vercel
+
+O projeto está otimizado para deploy *zero-config* na Vercel com suporte a **Angular SSR (Server-Side Rendering)** e rotas estáticas pré-renderizadas.
+
+### Como realizar o deploy:
+
+1. Suba o seu código para um repositório no **GitHub**, **GitLab** ou **Bitbucket**.
+2. Acesse a [Vercel](https://vercel.com/) e crie um novo projeto importando este repositório.
+3. A Vercel detectará automaticamente que o framework é o **Angular** (`@angular/ssr`).
+4. (Opcional) Na área de configuração do build, certifique-se de que os comandos estão assim:
+   - **Framework Preset**: Angular
+   - **Build Command**: `npm run build`
+   - **Install Command**: `npm install`
+5. Adicione a variável de ambiente `GEMINI_API_KEY` caso utilize a funcionalidade de IA no backend/SSR.
+6. Clique em **Deploy**.
+
+> **Nota:** Arquivos auxiliares como `vercel.json` e `.vercelignore` já estão configurados no projeto para garantir um build assíncrono rápido e sem o upload de arquivos desnecessários.
+
+---
+
 ## 📂 Estrutura do Projeto
 
 O projeto utiliza uma arquitetura baseada em componentes e roteamento modular:

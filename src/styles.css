@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #1A3C34;
+  --color-primary-dark: #0F2620;
+  --color-primary-light: #2C5E52;
+  --color-background-light: #F8F9FA;
+  --color-background-dark: #121212;
+  --color-surface-light: #FFFFFF;
+  --color-surface-dark: #1E1E1E;
+  --color-text-light: #333333;
+  --color-text-dark: #E0E0E0;
+  --color-accent: #C4D6B0;
+
+  --font-display: 'Montserrat', sans-serif;
+  --font-body: 'Open Sans', sans-serif;
+}
+
+@layer utilities {
+  .oca-icon-shape {
+      clip-path: path('M 50 10 Q 85 85 90 90 L 10 90 Q 15 85 50 10 Z');
+  }
+  .hut-door {
+      clip-path: path('M 0 0 L 100 0 L 100 100 L 0 100 Z');
+  }
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: #1A3C34;
+    border-radius: 4px;
+}

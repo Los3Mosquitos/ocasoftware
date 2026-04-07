@@ -1,0 +1,6 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Refined Oca (Hut) Shape for Favicon -->
+  <path d="M64 12C36 12 10 40 8 76C8 100 24 116 36 116H92C104 116 120 100 120 76C118 40 92 12 64 12Z" fill="#1A3C34"/>
+  <!-- Hut Entrance -->
+  <path d="M54 116V100C54 97.7909 55.7909 96 58 96H70C72.2091 96 74 97.7909 74 100V116H54Z" fill="#F8F9FA"/>
+</svg>

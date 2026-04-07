@@ -1,0 +1,87 @@
+<nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 transition-colors duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-24 items-center">
+      <div class="flex-shrink-0 flex items-center gap-1 group cursor-pointer" routerLink="/">
+        <span
+          class="font-display font-bold text-3xl text-primary tracking-tight group-hover:opacity-90 transition-opacity">OC</span>
+        <div class="relative w-10 h-9 mx-0.5 flex items-end justify-center">
+          <div class="absolute inset-0 bg-primary rounded-[40%_40%_30%_30%_/_60%_60%_20%_20%]"></div>
+          <div class="relative w-2.5 h-2.5 bg-background-light rounded-t-sm mb-0"></div>
+        </div>
+        <span
+          class="font-display font-light text-3xl text-primary tracking-widest ml-1 group-hover:opacity-90 transition-opacity">SOFTWARE</span>
+      </div>
+      <div class="hidden md:flex space-x-8 items-center">
+        <a class="text-gray-600 hover:text-primary font-medium transition-colors text-sm uppercase tracking-wide"
+          routerLink="/" fragment="services">Serviços</a>
+        <a class="text-gray-600 hover:text-primary font-medium transition-colors text-sm uppercase tracking-wide"
+          routerLink="/" fragment="about">Sobre Nós</a>
+        <a class="text-gray-600 hover:text-primary font-medium transition-colors text-sm uppercase tracking-wide"
+          routerLink="/" fragment="how-we-work">Como Trabalhamos</a>
+        <a class="text-gray-600 hover:text-primary font-medium transition-colors text-sm uppercase tracking-wide"
+          routerLink="/" fragment="projects">Projetos</a>
+        <a class="bg-primary hover:bg-primary-dark text-white px-8 py-2.5 rounded-full font-semibold text-sm tracking-wide transition-all shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:-translate-y-0.5"
+          routerLink="/" fragment="contact">VAMOS CONVERSAR</a>
+      </div>
+      <div class="md:hidden flex items-center">
+        <button class="text-gray-700 focus:outline-none">
+          <span class="material-symbols-outlined text-3xl">menu</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+<main class="pt-24 min-h-screen flex flex-col">
+  <router-outlet></router-outlet>
+</main>
+<footer class="bg-gray-100 pt-20 pb-10 border-t border-gray-200 transition-colors duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+      <div class="col-span-1 md:col-span-1">
+        <div class="flex items-center gap-1 mb-6 cursor-pointer select-none" routerLink="/">
+          <span class="font-display font-bold text-2xl text-primary tracking-tight">OC</span>
+          <div class="relative w-8 h-7 mx-0.5 flex items-end justify-center">
+            <div class="absolute inset-0 bg-primary rounded-[40%_40%_30%_30%_/_60%_60%_20%_20%]"></div>
+            <div class="relative w-2 h-2 bg-gray-100 rounded-t-sm mb-0"></div>
+          </div>
+          <span class="font-display font-light text-2xl text-primary tracking-widest ml-1">SOFTWARE</span>
+        </div>
+        <p class="text-gray-500 text-sm leading-relaxed">
+          Inspirada na natureza, projetada para o futuro. Construímos ecossistemas de software que crescem, se adaptam e
+          prosperam com o seu negócio.
+        </p>
+      </div>
+      <div>
+        <h4 class="font-bold text-primary mb-6 uppercase text-xs tracking-[0.2em]">Empresa</h4>
+        <ul class="space-y-4 text-sm text-gray-600">
+          <li><a class="hover:text-primary transition-colors" routerLink="/" fragment="about">Sobre Nós</a></li>
+          <li><a class="hover:text-primary transition-colors" routerLink="/carreiras">Carreiras</a></li>
+          <li><a class="hover:text-primary transition-colors" routerLink="/blog">Blog</a></li>
+          <li><a class="hover:text-primary transition-colors" routerLink="/" fragment="contact">Contato</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold text-primary mb-6 uppercase text-xs tracking-[0.2em]">Serviços</h4>
+        <ul class="space-y-4 text-sm text-gray-600">
+          <li><a class="hover:text-primary transition-colors" routerLink="/servicos/desenvolvimento-web">Desenvolvimento
+              Web</a></li>
+          <li><a class="hover:text-primary transition-colors" routerLink="/servicos/aplicativos-moveis">Aplicativos
+              Móveis</a></li>
+          <li><a class="hover:text-primary transition-colors" routerLink="/servicos/arquitetura-nuvem">Arquitetura em
+              Nuvem</a></li>
+          <li><a class="hover:text-primary transition-colors" routerLink="/servicos/ia-ml">IA e ML</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold text-primary mb-6 uppercase text-xs tracking-[0.2em]">Legal</h4>
+        <ul class="space-y-4 text-sm text-gray-600">
+          <li><a class="hover:text-primary transition-colors" routerLink="/privacidade">Política de Privacidade</a></li>
+          <li><a class="hover:text-primary transition-colors" routerLink="/termos">Termos de Serviço</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="text-center pt-8 border-t border-gray-200">
+      <p class="text-xs text-gray-400">© 2026 OCA SOFTWARE. Todos os direitos reservados.</p>
+    </div>
+  </div>
+</footer>
