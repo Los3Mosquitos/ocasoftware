@@ -1,6 +1,6 @@
 import { Resend } from 'resend';
 
-export default async function handler(req, res) {
+export default async function handler(req: any, res: any) {
   // Allow OPTIONS method for CORS preflight
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
@@ -19,7 +19,7 @@ export default async function handler(req, res) {
 
     const data = await resend.emails.send({
       from: 'OCA Software <onboarding@resend.dev>', // Verifique o domínio no Resend para enviar de outro endereço
-      to: ['frpbotero@gmail.com'],
+      to: ['hello@ocasoftware.com.br'],
       subject: `Novo Contato do Site: ${firstName} ${lastName}`,
       html: `
         <h2>Novo contato recebido do formulário do site OCA Software</h2>
