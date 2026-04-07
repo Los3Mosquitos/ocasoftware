@@ -18,8 +18,8 @@ export default async function handler(req, res) {
     const resend = new Resend(resendApiKey);
 
     const data = await resend.emails.send({
-      from: 'OCA Software <onboarding@resend.dev>', // Replace with your verified Vercel/Resend domain sender
-      to: ['hello@ocasoftware.com.br'],
+      from: 'OCA Software <onboarding@resend.dev>', // Verifique o domínio no Resend para enviar de outro endereço
+      to: ['frpbotero@gmail.com'],
       subject: `Novo Contato do Site: ${firstName} ${lastName}`,
       html: `
         <h2>Novo contato recebido do formulário do site OCA Software</h2>

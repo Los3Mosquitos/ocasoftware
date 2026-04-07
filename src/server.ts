@@ -31,7 +31,7 @@ app.post('/api/contact', async (req, res) => {
 
     const data = await resend.emails.send({
       from: 'OCA Software <onboarding@resend.dev>', // Use a verified domain in production
-      to: ['hello@ocasoftware.com.br'],
+      to: ['frpbotero@gmail.com'],
       subject: `Novo Contato do Site: ${firstName} ${lastName}`,
       html: `
         <h2>Novo contato recebido do formulário do site OCA Software</h2>
