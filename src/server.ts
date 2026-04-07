@@ -36,17 +36,21 @@ app.post('/api/contact', async (req, res) => {
       html: `
         <h2>Novo contato recebido do formulário do site OCA Software</h2>
         <p><strong>Nome:</strong> ${firstName} ${lastName}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Interesse:</strong> ${interest}</p>
+        <p><strong>Email:</strong> ${email || 'Não informado'}</p>
+        <p><strong>Interesse:</strong> ${interest || 'Não informado'}</p>
         <p><strong>Mensagem:</strong></p>
-        <p>${message.replace(/\n/g, '<br>')}</p>
+        <p>${(message || '').replace(/\n/g, '<br>')}</p>
       `,
     });
 
     res.status(200).json({ success: true, data });
   } catch (error: any) {
-    console.error('Error sending email:', error);
-    res.status(500).json({ success: false, error: error.message });
+    console.error('EXPRESS_SERVER_ERROR:', error);
+    res.status(500).json({ 
+      success: false, 
+      error: error.message,
+      stack: process.env['NODE_ENV'] === 'development' ? error.stack : undefined 
+    });
   }
 });
 

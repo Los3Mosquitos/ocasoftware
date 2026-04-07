@@ -24,16 +24,20 @@ export default async function handler(req, res) {
       html: `
         <h2>Novo contato recebido do formulário do site OCA Software</h2>
         <p><strong>Nome:</strong> ${firstName} ${lastName}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Interesse:</strong> ${interest}</p>
+        <p><strong>Email:</strong> ${email || 'Não informado'}</p>
+        <p><strong>Interesse:</strong> ${interest || 'Não informado'}</p>
         <p><strong>Mensagem:</strong></p>
-        <p>${message.replace(/\n/g, '<br>')}</p>
+        <p>${(message || '').replace(/\n/g, '<br>')}</p>
       `,
     });
 
     return res.status(200).json({ success: true, data });
-  } catch (error) {
-    console.error('Error sending email:', error);
-    return res.status(500).json({ success: false, error: error.message });
+  } catch (error: any) {
+    console.error('SERVERLESS_ERROR:', error);
+    return res.status(500).json({ 
+      success: false, 
+      error: error.message,
+      stack: process.env['NODE_ENV'] === 'development' ? error.stack : undefined 
+    });
   }
 }
