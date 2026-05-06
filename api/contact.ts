@@ -18,7 +18,7 @@ export default async function handler(req: any, res: any) {
     const resend = new Resend(resendApiKey);
 
     const data = await resend.emails.send({
-      from: 'OCA Software <onboarding@resend.dev>', // Verifique o domínio no Resend para enviar de outro endereço
+      from: 'OCA Software <onboarding@resend.dev>', 
       to: ['hello@ocasoftware.com.br'],
       subject: `Novo Contato do Site: ${firstName} ${lastName}`,
       html: `
